@@ -1,0 +1,22 @@
+{
+	"name": "mathjax",
+	"version": "1.0",
+	"tags": {
+		"eq": "tags.InlineEquation",
+		"equation": "tags.BlockEquation"
+ 	},
+	"scripts": [
+		{
+			"remote_path": "https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=/script/mathjax_config.js",
+			"download_archive": "https://github.com/mathjax/MathJax/archive/v2.6-latest.zip",
+			"downloaded_path": "mathjax26/MathJax.js?config=/script/mathjax_config.js",
+			"copy_map": {
+				"MathJax-2.6-latest": "mathjax26"
+			}
+		}
+	],
+	"static": [
+		"script/mathjax_config.js"
+	],
+	"license": "Apache 2.0"
+}

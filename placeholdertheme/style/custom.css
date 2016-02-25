@@ -1,0 +1,27 @@
+
+#main-container
+{
+	margin-bottom: 10em;
+}
+
+c
+{
+	color: gray;
+	font-size: 8pt;
+}
+
+note
+{
+	/* Like a footnote, but not necessarily at the bottom, there are no pages after all */
+	color: gray;
+	font-style: italic;
+}
+
+ref
+{
+	vertical-align: super;
+	font-size: 60%;
+	color: blue;
+}
+
+
