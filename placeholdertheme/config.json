@@ -6,20 +6,54 @@
 		"static/*"
 	],
 	"styles": [
-		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css",
-		"http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
-		"http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic",
-		"http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800",
-		"style/clean-blog.min.css",
-		"style/custom.css"
+		{
+			"remote_path": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css",
+			"allow_minify": false
+		},
+		{
+			"remote_path": "http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
+			"allow_minify": false
+		},
+		{
+			"remote_path": "http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic",
+			"allow_minify": false
+		},
+		{
+			"remote_path": "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800",
+			"allow_minify": false
+		},
+		{
+			"local_path": "style/clean-blog.min.css",
+			"allow_minify": false
+		},
+		{
+			"local_path": "style/custom.css"
+		}
 	],
 	"scripts": [
-		"https://code.jquery.com/jquery-2.1.4.min.js",
-		"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js",
-		"https://mpld3.github.io/js/mpld3.v0.2.min.js",
-		"script/mpld3_config.js",
-		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
-		"script/clean-blog.min.js"
+		{
+			"remote_path": "https://code.jquery.com/jquery-2.1.4.min.js",
+			"allow_minify": false
+		},
+		{
+			"remote_path": "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js",
+			"allow_minify": false
+		},
+		{
+			"remote_path": "https://mpld3.github.io/js/mpld3.v0.2.min.js",
+			"allow_minify": false
+		},
+		{
+			"local_path": "script/mpld3_config.js"
+		},
+		{
+			"remote_path": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
+			"allow_minify": false
+		},
+		{
+			"local_path": "script/clean-blog.min.js",
+			"allow_minify": false
+		}
 	],
 	"license": "Apache 2.0"
 }

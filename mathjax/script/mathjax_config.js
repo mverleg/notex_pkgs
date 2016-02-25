@@ -193,8 +193,8 @@ MathJax.Hub.Config({
   //  have been moved to this more central location since they are shared
   //  by all output jax.
   //
-  showMathMenu: true,
-  showMathMenuMSIE: true,
+  showMathMenu: false,  // todo: or do I want it?
+  showMathMenuMSIE: false,
 
 
   //
@@ -271,7 +271,7 @@ MathJax.Hub.Config({
 	//      $y = x^2 \hbox{ when $x > 2$}$.
 	//
 	//  will be properly handled as a single expression.  When false, it
-	//  would be interpreted as two searpate expressions, each with
+	//  would be interpreted as two separate expressions, each with
 	//  improperly balanced braces.
 	//
 	balanceBraces: true,
@@ -321,7 +321,7 @@ MathJax.Hub.Config({
 	//  mode.  Set to "false" to prevent processing of environments except within
 	//  math mode.
 	//
-	processEnvironments: true,
+	processEnvironments: false,
 
 	//
 	//  Controls whether tex2jax processes \ref{...} commands outside
@@ -954,3 +954,5 @@ MathJax.Hub.Config({
 });
 
 MathJax.Ajax.loadComplete("[MathJax]/config/default.js");
+
+

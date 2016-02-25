@@ -4,15 +4,22 @@
 	"tags": {
 		"eq": "tags.InlineEquation",
 		"equation": "tags.BlockEquation"
- 	},
+	},
 	"scripts": [
+//		{
+//			"local_path": "script/mathjax_config.js",
+//			"tag_type": "text/x-mathjax-config",
+//			"allow_minify": false
+//		},
 		{
 			"remote_path": "https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=/script/mathjax_config.js",
 			"download_archive": "https://github.com/mathjax/MathJax/archive/v2.6-latest.zip",
-			"downloaded_path": "mathjax26/MathJax.js?config=/script/mathjax_config.js",
+			"downloaded_path": "MathJax-2.6-latest/MathJax.js?config=/script/mathjax_config.js",
 			"copy_map": {
-				"MathJax-2.6-latest": "mathjax26"
-			}
+				"MathJax-2.6-latest": "MathJax-2.6-latest",
+				"": "MathJax-2.6-latest/MathJax.js"
+			},
+			"allow_minify": false
 		}
 	],
 	"static": [
