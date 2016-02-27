@@ -1,0 +1,11 @@
+{
+  "name": "auto_paragraphs",
+  "version": "1.0",
+  "pre_processors": [
+    "pre_proc.insert_breakpoints"
+  ],
+  "compilers": [
+    "compile.add_paragraphs"
+  ],
+  "license": "Apache 2.0"
+}
