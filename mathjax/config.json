@@ -6,9 +6,6 @@
 		"equation": "tags.BlockEquation",
 		"var": "tags.InlineEquation"
 	},
-	"compilers": [
-		"compile.temporary_tag_replacement"
-	],
 	"scripts": [
 //		{
 //			"local_path": "script/mathjax_config.js",
