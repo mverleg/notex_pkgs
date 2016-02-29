@@ -1,0 +1,25 @@
+{
+  "name": "lxml_pr",
+  "version": "1.0",
+  "pip_requirements": [
+    "beautifulsoup4",
+   	"lxml"
+  ],
+  "external_requirements": [
+    "libxml2-dev",
+    "libxslt1-dev",
+    "python-dev"
+  ],
+  "command_arguments": [
+//    "arguments.ArgumentHandler"
+  ],
+  "tags": {
+    "include": "code.tags.IncludeTag",
+    "render": "code.tags.RenderTag"
+  },
+  "parser": "parser.LXML_Parser",
+  "renderer": "renderer.LXML_Renderer",
+//  "readme": "readme.rst",
+//  "credits": "",
+  "license": "Apache 2.0"
+}
