@@ -1,0 +1,15 @@
+{
+  "name": "citations",
+  "version": "1.0",
+  "config": "config.Config",
+  "tags": {
+	"refer": "tags.ReferTagHandler",
+	"citation": "tags.CitationTagHandler",
+	"bibtex": "tags.BibtexTagHandler",
+	"bibliography": "tags.BibliographyTagHandler"
+  },
+  "linkers": [
+    "linker.BibliographyLinker"
+  ],
+  "license": "Apache 2.0"
+}
