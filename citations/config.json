@@ -1,9 +1,13 @@
 {
   "name": "citations",
   "version": "1.0",
-  "config": "config.Config",
+  "pip_requirements": [
+    "bibtexparser>=0.6.2"
+  ],
+  "config": "config.CitationConfig",
   "tags": {
-	"refer": "tags.ReferTagHandler",
+	"ci": "tags.CiTagHandler",
+    "cite": "tags.CiteTagHandler",
 	"citation": "tags.CitationTagHandler",
 	"bibtex": "tags.BibtexTagHandler",
 	"bibliography": "tags.BibliographyTagHandler"

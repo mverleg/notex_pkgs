@@ -1,18 +1,41 @@
 
+from bibtexparser import loads
 from bs4 import BeautifulSoup
 from copy import copy
-from re import findall, MULTILINE, DOTALL
 from notexp.bases import TagHandler
 from .citation import Citation
 
 
-class ReferTagHandler(TagHandler):
+class CiTagHandler(TagHandler):
 	"""
-	A reference to a citation by name.
+	A reference to a citation by identifier (will show a number or whatever the format dictates).
 	"""
 	def __call__(self, element, **kwargs):
-		self.config.add_reference(element.decode_contents().strip())
-		element.extract()
+		identifier = element.decode_contents().strip()
+		self.config.add_reference(identifier)
+		anchor = BeautifulSoup.new_tag(element, 'a', href='#cite-{0:s}'.format(identifier))
+		anchor.append(BeautifulSoup.new_tag(element, 'reference-ci', **{
+			'data-identifier': identifier,
+			'class': ['citation-reference', 'citation-{0:s}'.format(identifier)],
+		}))
+		element.replace_with(anchor)
+		self.config.has_ci_tag = True
+
+
+class CiteTagHandler(TagHandler):
+	"""
+	A reference to a citation by identifier (will show the name of the work, as per the specification of the <cite> tag.
+	"""
+	def __call__(self, element, **kwargs):
+		identifier = element.decode_contents().strip()
+		self.config.add_reference(identifier)
+		anchor = BeautifulSoup.new_tag(element, 'a', href='#cite-{0:s}'.format(identifier))
+		anchor.append(BeautifulSoup.new_tag(element, 'reference-cite', **{
+			'data-identifier': identifier,
+			'class': ['citation-reference', 'citation-{0:s}'.format(identifier)],
+		}))
+		element.replace_with(anchor)
+		self.config.has_cite_tag = True
 
 
 class CitationTagHandler(TagHandler):
@@ -28,17 +51,13 @@ class BibtexTagHandler(TagHandler):
 	"""
 	A citation specified in bibtex format (as the content of the tag).
 	"""
-	def parse_bibtex(self, txt):
-		#todo this goes wrong as soon as there's a } in the title; find a python package to do this
-		#todo: bibtex tag should accept `src` attribute to load external file
-		found = findall(r'@([\w\-]+)\s*\{(.*?)\}', txt, DOTALL | MULTILINE)
-		return found
-
 	def __call__(self, element, **kwargs):
-		name, citation = self.parse_bibtex(element.decode_contents())
-		self.config.add_citation(name, Citation(**element.attrs))
+		citations = loads(element.decode_contents())
+		for citation in citations:
+			identity = citation.pop('ID')
+			typ = citation.pop('ENTRYTYPE')
+			self.config.add_citation(identity, Citation(type=typ, **element.attrs))
 		element.extract()
-		raise NotImplementedError('bibtex style input does not work yet')
 
 
 class BibliographyTagHandler(TagHandler):
@@ -49,9 +68,10 @@ class BibliographyTagHandler(TagHandler):
 	"""
 	def __call__(self, element, **kwargs):
 		tag_id = 'bibliography-{0:}'.format(len(self.config.bibliographies) + 1)
-		bio_tag = BeautifulSoup.new_tag(element, 'notex-bibliography', id=tag_id)
+		article = BeautifulSoup.new_tag(element, 'article')
+		article.append(BeautifulSoup.new_tag(element, 'notex-bibliography', id=tag_id))
 		self.config.bibliographies[tag_id] = copy(element.attrs)
-		element.replace_with(bio_tag)
+		element.replace_with(article)
 
 
 # def refer_to_citation(self, element, config, **kwargs):
