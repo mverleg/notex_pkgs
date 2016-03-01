@@ -14,8 +14,8 @@
 //    "arguments.ArgumentHandler"
   ],
   "tags": {
-    "include": "code.tags.IncludeTag",
-    "render": "code.tags.RenderTag"
+    "include": "tags.IncludeTag",
+    "render": "tags.RenderTag"
   },
   "parser": "parser.LXML_Parser",
   "renderer": "renderer.LXML_Renderer",
