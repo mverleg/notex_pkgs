@@ -1,6 +1,6 @@
 {
 	"name": "mathjax",
-	"version": "1.0",
+	"version": "1.1",
 	"tags": {
 		"eq": "tags.InlineEquation",
 		"equation": "tags.BlockEquation",
@@ -8,14 +8,39 @@
 	},
 	"scripts": [
 //		{
-//			"local_path": "script/mathjax_config.js",
+//			"local_path": "script/mathjax_config_full.js",
 //			"tag_type": "text/x-mathjax-config",
 //			"allow_minify": false
 //		},
+//		{
+//			"remote_path": "https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=/script/mathjax_config.js",
+//			"download_archive": "https://github.com/mathjax/MathJax/archive/v2.6-latest.zip",
+//			"downloaded_path": "MathJax-2.6-latest/MathJax.js?config=/script/mathjax_config_full.js",
+//			"copy_map": {
+//				"MathJax-2.6-latest": "MathJax-2.6-latest",
+//				"": "MathJax-2.6-latest/MathJax.js"
+//			},
+//			"allow_minify": false
+//		}
+//		{
+//			"download_archive": "https://github.com/mathjax/MathJax/archive/v2.6-latest.zip",
+//			"downloaded_path": "MathJax-2.6-latest/MathJax.js",
+//			"copy_map": {
+//				"MathJax-2.6-latest": "MathJax-2.6-latest",
+//				"": "MathJax-2.6-latest/MathJax.js"
+//			},
+//			"allow_minify": false
+//		},
 		{
-			"remote_path": "https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=/script/mathjax_config.js",
+			"local_path": "script/mathjax_config_inline.js",
+			"tag_type": "text/x-mathjax-config",
+			"allow_minify": false,
+			"internalize": true
+		},
+		{
+			"remote_path": "https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js",
 			"download_archive": "https://github.com/mathjax/MathJax/archive/v2.6-latest.zip",
-			"downloaded_path": "MathJax-2.6-latest/MathJax.js?config=/script/mathjax_config.js",
+			"downloaded_path": "MathJax-2.6-latest/MathJax.js",
 			"copy_map": {
 				"MathJax-2.6-latest": "MathJax-2.6-latest",
 				"": "MathJax-2.6-latest/MathJax.js"
@@ -23,8 +48,8 @@
 			"allow_minify": false
 		}
 	],
-	"static": [
-		"script/mathjax_config.js"
-	],
+//	"static": [
+//		"script/mathjax_config.js"
+//	],
 	"license": "Apache 2.0"
 }

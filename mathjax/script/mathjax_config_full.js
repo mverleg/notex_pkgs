@@ -1,9 +1,10 @@
 
-/*************************************************************
+/****************************************************************
  *
  *  Based on:
  *  MathJax/config/default.js
  *
+ *  Abandoned because somehow it takes ~10s to start processing.
  */
 
 MathJax.Hub.Config({
