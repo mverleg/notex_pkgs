@@ -8,7 +8,19 @@
 c
 {
 	color: gray;
-	font-size: 8pt;
+	font-size: 70%;
+}
+
+todo, ask
+{
+	color: maroon;
+	font-size: 70%;
+}
+
+check
+{
+	color: maroon;
+	font-style: italic;
 }
 
 note
@@ -18,14 +30,82 @@ note
 	font-style: italic;
 }
 
-ref
+aside
+{
+	position: absolute;
+	border: 2px solid gray;
+	border-radius: 5px;
+	padding: 0.5em;
+	width: 200px;
+	left: 100%;
+	color: gray;
+	font-size: 80%;
+	font-style: italic;
+}
+
+reference-ci
 {
 	vertical-align: super;
 	font-size: 60%;
 	color: blue;
 }
 
-p
+p, ol, ul, figure, math-equation
 {
 	margin-top: 0;
+	margin-bottom: 1.5em;
 }
+
+math-equation
+{
+	display: block;
+}
+
+.figure-left, .figure-right
+{
+	max-width: 45%;
+}
+
+.figure-left img, .figure-right img
+{
+	max-width: 100%;
+}
+
+.figure-left
+{
+	float: left;
+	margin: 0 1em 1em 0;
+}
+
+.figure-right
+{
+	float: right;
+	margin: 0 0 1em 1em;
+}
+
+.figure-content-center
+{
+	text-align: center;
+}
+
+.figure-content-center img
+{
+	margin: 0 auto;
+}
+
+figure a
+{
+	text-decoration: underline;
+}
+
+.citation-link
+{
+	text-decoration: none;
+}
+
+figcaption
+{
+	font-style: italic;
+}
+
+

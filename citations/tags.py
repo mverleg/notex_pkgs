@@ -13,7 +13,7 @@ class CiTagHandler(TagHandler):
 	def __call__(self, element, **kwargs):
 		identifier = element.decode_contents().strip()
 		self.config.add_reference(identifier)
-		anchor = BeautifulSoup.new_tag(element, 'a', href='#cite-{0:s}'.format(identifier))
+		anchor = BeautifulSoup.new_tag(element, 'a', **{'class': 'citation-link'})#, href='#cite-{0:s}'.format(hash_str(identifier)))
 		anchor.append(BeautifulSoup.new_tag(element, 'reference-ci', **{
 			'data-identifier': identifier,
 			'class': ['citation-reference', 'citation-{0:s}'.format(identifier)],
@@ -29,7 +29,8 @@ class CiteTagHandler(TagHandler):
 	def __call__(self, element, **kwargs):
 		identifier = element.decode_contents().strip()
 		self.config.add_reference(identifier)
-		anchor = BeautifulSoup.new_tag(element, 'a', href='#cite-{0:s}'.format(identifier))
+		anchor = BeautifulSoup.new_tag(element, 'a', **{'class': 'citation-link'})#, href='#cite-{0:s}'.format(hash_str(identifier)))
+		#anchor = BeautifulSoup.new_tag(element, 'a')#, href='#cite-{0:s}'.format(hash_str(identifier)))
 		anchor.append(BeautifulSoup.new_tag(element, 'reference-cite', **{
 			'data-identifier': identifier,
 			'class': ['citation-reference', 'citation-{0:s}'.format(identifier)],
@@ -52,11 +53,17 @@ class BibtexTagHandler(TagHandler):
 	A citation specified in bibtex format (as the content of the tag).
 	"""
 	def __call__(self, element, **kwargs):
-		citations = loads(element.decode_contents())
-		for citation in citations:
+		if 'src' in element.attrs:
+			#todo: better fine searching needed
+			with open(element.attrs['src']) as fh:
+				txt = fh.read()
+		else:
+			txt = element.decode_contents()
+		citations = loads(txt)
+		for citation in citations.entries:
 			identity = citation.pop('ID')
 			typ = citation.pop('ENTRYTYPE')
-			self.config.add_citation(identity, Citation(type=typ, **element.attrs))
+			self.config.add_citation(identity, Citation(type=typ, **citation))
 		element.extract()
 
 
