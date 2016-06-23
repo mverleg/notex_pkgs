@@ -5,8 +5,8 @@ from notexp.bases import Configuration
 
 
 class CitationConfig(Configuration):
-	def __init__(self, options):
-		super(CitationConfig, self).__init__(options)
+	def __init__(self, options, **kwargs):
+		super(CitationConfig, self).__init__(options, **kwargs)
 		self.reference_counts = OrderedDict()
 		self.citations = OrderedDict()
 		self.bibliographies = OrderedDict()

@@ -1,0 +1,25 @@
+{
+	"name": "outliner",
+	"version": "1.0",
+	"pip_requirements": [
+		"html5-outliner"
+	],
+	"config": true,
+	"tags": {
+		"table-of-content": "tags.ToCLocation",
+		"section": "tags.Section",
+		"article": "tags.Section",
+		"aside": "tags.Section",
+		"nav": "tags.Section"
+	},
+	"linkers": [
+		"compile.ToCBuilder"
+	],
+	"styles": [
+		{
+			"local_path": "static/outline-style.css",
+			"internalize": true
+		}
+	],
+	"license": "Apache 2.0"
+}

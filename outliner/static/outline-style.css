@@ -1,0 +1,40 @@
+
+.table-of-contents ol
+{
+	border-left: 1px solid transparent;
+	padding-left: 1.5em;
+}
+
+.table-of-contents ol:hover
+{
+	border-left: 1px solid lightgray;
+	/*border-radius: 5px;*/
+}
+
+#floating-toc
+{
+	/*background-color: deeppink;*/
+	width: 16em;
+	position: fixed;
+	float: left;
+	left: 0;
+	top: 0;
+	margin: 1em 0 0 2em;
+	/* todo: pretty vertical scroll on overflow */
+
+}
+
+#floating-toc ol
+{
+	padding-left: 1.5em;
+	margin-left: -0.5em;
+}
+
+/*body*/
+/*{*/
+	/*padding-left: 16em;*/
+/*}*/
+
+/* todo: this is terrible on mobile phones */
+
+
